@@ -10,7 +10,7 @@ List<ReliefTechniqueData> activities = [
           "https://mainlinecounselingpartners.com/wp-content/uploads/2015/08/ProduceLauraMTS.mp4",
       favorite: false),
   ReliefTechniqueData(
-      activityName: "Take a walk",
+      activityName: "Take a walk
       duration: 15,
       mood: "Sleepless",
       image: "https://i.imgur.com/ivadFkS.jpg",
