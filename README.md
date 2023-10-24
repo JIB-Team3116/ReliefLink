@@ -102,6 +102,29 @@ We suggest that you speak to the programmers on your team. You can try this link
 
 # Major Release Notes
 
+## v1.4.0
+
+User Features update, we implemented some major features of the application within this update that focused on customizability for users regarding how they want to approach their individual mental healthcare.
+
+### New Features
+- Backend
+  - Nearly every part of the application should allow users to save their data to their account and access from multiple devices
+- Frontend
+  - Users can now customize their crisis plans with specific contacts, relief techniques, and steps
+  - User can customize which relief techniques they want to include in their plan and create their own relief techniques
+  - Users can specify specific contacts for emergency situations along with what each contact is used for
+### Bug Fixes
+- n/a
+
+### Known Issues
+- Autocomplete in Crisis Plan can miss suggestions
+- Duplicated Header after completing the onboarding
+- Pixel overflow can occur if too many contacts are added
+- If the image chosen isn't high quality, it can look really blurry when displayed
+- Sometimes error messages for incorrect login or existing registration don't show up
+
+# Previous Release Notes
+
 ## v1.3.0
 
 Backend intergration update part 2, we have integrated more of the backend using users' accounts so that the information they save is consistent across all updates/versions of the app when using the same account.
@@ -122,7 +145,6 @@ Backend intergration update part 2, we have integrated more of the backend using
 - If the image chosen isn't high quality, it can look really blurry when displayed
 - Sometimes error messages for incorrect login or existing registration don't show up
 
-# Previous Release Notes
 
 ## v1.2.0
 
