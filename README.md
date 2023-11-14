@@ -102,6 +102,29 @@ We suggest that you speak to the programmers on your team. You can try this link
 
 # Major Release Notes
 
+## v1.5.0
+
+Tutorial Update, included a tutorial within the application for users to learn about the app's main features and how to use them.
+
+### New Features
+- Frontend
+  - New Users will automatically be placed into the tutorial which walks them through the application
+  - Users can access the tutorial from the me page and selecting "onboarding"
+  - Users can choose healthcare locations near them and mark them on the map
+  - Users can upload custom relief techniques tailored to them
+### Bug Fixes
+- Users who register and login and logout should no longer need to restart the application to log back in.
+
+### Known Issues
+- Autocomplete in Crisis Plan can miss suggestions
+- Pixel overflow can occur if too many contacts are added
+- If the image chosen isn't high quality, it can look really blurry when displayed
+- Map currently says for development purposes only
+- Pictures can have a weird watermark if using desktop
+- formatting between mobile and desktop aren't consistent
+- Sometimes error messages for incorrect login or existing registration don't show up
+
+# Previous Release Notes
 ## v1.4.0
 
 User Features update, we implemented some major features of the application within this update that focused on customizability for users regarding how they want to approach their individual mental healthcare.
@@ -122,9 +145,7 @@ User Features update, we implemented some major features of the application with
 - Pixel overflow can occur if too many contacts are added
 - If the image chosen isn't high quality, it can look really blurry when displayed
 - Sometimes error messages for incorrect login or existing registration don't show up
-
-# Previous Release Notes
-
+  
 ## v1.3.0
 
 Backend intergration update part 2, we have integrated more of the backend using users' accounts so that the information they save is consistent across all updates/versions of the app when using the same account.
