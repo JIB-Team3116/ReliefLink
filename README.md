@@ -22,14 +22,6 @@ An app to assist suicide prevention, from coping techniques to relaxation exerci
 
 ## Team Members
 
-- Joshua Tzeng
-- Eric Chang
-- Bronson Wong
-- George Chen
-- Matthew Wright
-
-## Former Team Members
-
 - Eduardo Trunci
 - Daniel Young
 - Alexandr Shor
@@ -80,7 +72,6 @@ There are some dependencies for this project. They are automatically installed o
   fl_chart: ^0.55.2
   pie_chart: ^5.3.2
   syncfusion_flutter_charts: ^20.3.59
-  image_network: 
 ```
 
 ### Building and Deploying
@@ -97,52 +88,11 @@ For demo purposes, we suggest you to deploy the Flutter app to Firebase - so tha
 
 ## For non-programmers
 
-We suggest that you speak to the programmers on your team. You can try this link, too: [Link](https://relieflink-d8470.web.app/#/). It might contain a working version of the deployed app for your phone!
+We suggest that you speak to the programmers on your team. You can try this link, too: [Link](https://relieflink.trunci.com/). It might contain a working version of the deployed app for your phone!
 
 
 # Major Release Notes
 
-## v1.2.0
-
-Backend intergration update. We have implemented the ability for users to register, authenticate, and login to their respective accounts.
-
-###  Features
-- Backend
-  - Users can now register for an using their email
-  - Users can authenticate and login to their account using their email and password 
-
-### Bug Fixes
-- Issues with inconsistent starting page is fixed
-
-### Known Issues
-- Autocomplete in Crisis Plan can miss suggestions
-- Duplicated Header after completing the onboarding
-- Pixel overflow can occur if too many contacts are added
-- If the image chosen isn't high quality, it can look really blurry when displayed
-
-
-# Previous Release Notes
-
-## v1.1
-
-First update to the public deployment of the app! We are very excited to continue this project. We have implemented the ability to display and add images along with fixing the map feature.
-
-###  Features
-- Relief Techniques
-  - Users can now add/show images for their techniques
-  - All preexisting techniques have been updated to also feature pictures
-- Mental health clinics near me
-  - Users can now actually access the Google Maps integration to see health clinics, police departments, etc. near their location
-
-### Bug Fixes
-- Map api is now working mostly as intended
-- Issues with image and video display have been fixed
-
-### Known Issues
-- Autocomplete in Crisis Plan can miss suggestions
-- Duplicated Header after completing the onboarding
-- Pixel overflow can occur if too many contacts are added
-- If the image chosen isn't high quality, it can look really blurry when displayed
 
 ## v1.0
 
@@ -187,6 +137,9 @@ The first public deployment of the app! We are very excited to show this working
 - Duplicated Header after completing the onboarding
 - Maps API is not using the user's current location
 - Pixel overflow can occur if too many contacts are added
+
+
+# Previous Release Notes
 
 ## v0.4.0
 

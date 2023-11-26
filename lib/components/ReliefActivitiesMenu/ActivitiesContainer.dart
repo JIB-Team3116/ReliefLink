@@ -152,61 +152,16 @@ class ReliefActivityBoxContainerState
                 fontWeight: FontWeight.w300,
                 fontSize: 15,
               ))));
-      String image;
+      List<Widget> grid = [];
       for (var activity in buckets[i]) {
-        image = activity.activityName;
         if (options.searchString == '' ||
             activity.activityName
                 .toLowerCase()
                 .contains(options.searchString.toLowerCase())) {
           grid.add(
             Padding(
-              padding: const EdgeInsets.all(10.0),
-              child: GestureDetector(
-                onTap: () {
-                  // handle button tap
-                },
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(10.0),
-                    boxShadow: const [
-                      BoxShadow(
-                        color: Colors.grey,
-                        offset: Offset(0, 2),
-                        blurRadius: 2.0,
-                      ),
-                    ],
-                  ),
-                  child: Column(
-                    children: [
-                      Image.asset('/Users/bronsonwong/Downloads/Team-2136-ReliefLink/lib/assets/relaxationimage.png'),
-                      const SizedBox(height: 10),
-                      Text(
-                        activity.activityName,
-                        textAlign: TextAlign.center,
-                        style: const TextStyle(
-                          color: AppColors.font,
-                          fontFamily: 'MainFont',
-                          fontWeight: FontWeight.w500,
-                          fontSize: 16,
-                        ),
-                      ),
-                      const SizedBox(height: 5),
-                      Text(
-                        '${activity.duration} min',
-                        style: const TextStyle(
-                          color: AppColors.font,
-                          fontFamily: 'MainFont',
-                          fontWeight: FontWeight.w300,
-                          fontSize: 13,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
+                padding: const EdgeInsets.all(10.0),
+                child: ActivityButton(activity: activity, updateParent: updateActivities)),
           );
         }
       }
