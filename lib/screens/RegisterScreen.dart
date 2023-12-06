@@ -6,9 +6,11 @@ import 'package:relieflink/components/Navigation/TopBars.dart';
 import '../utils/constants.dart';
 import 'package:relieflink/screens/LoginScreen.dart';
 import 'dart:async';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
+FirebaseFirestore firestoreDB = FirebaseFirestore.instance;
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({Key? key}) : super(key: key);
@@ -29,9 +31,20 @@ class _RegisterScreen extends State<RegisterScreen> {
 //7
         return ListView(
           scrollDirection: Axis.vertical,
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.only(left: 30.0, right: 30.0),
           children: <Widget>[
+            SizedBox(
+              height: 15.0,
+            ),
             _RegisterEmailSection(),
+            Padding(
+              padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 15.0),
+              child: Image.asset(
+                "lib/components/Profile/logo.PNG",
+                width: 413,
+                height: 250,
+              ),
+            ),
           ],
         );
       }),
@@ -66,6 +79,7 @@ void _register() async {
       _success = true;
       _userEmail = user.email;
     });
+
     Timer(Duration(seconds: 3), () {
         print("TIME");
         Navigator.push(
@@ -89,7 +103,18 @@ void dispose() {
 
 @override
 Widget build(BuildContext context) {
+    CollectionReference users = FirebaseFirestore.instance.collection('users');
+    
+    Future<void> addUser() {
+      return users.add({
+        'email': _userEmail,
+        'newUser': true
+      });
+    }
+
     if (_success) {
+        addUser();
+
         return Container(
                     alignment: Alignment.center,
                     child: Text(
@@ -99,32 +124,76 @@ Widget build(BuildContext context) {
                 );
     }
     else{
-        return Form(
-            key: _formKey,
-            child: Column(
+        return Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
-                TextFormField(
-                    controller: _emailController,
-                    decoration: const InputDecoration(labelText: 'Email'),
-                    validator: (String? value) {
-                    if (value != null && value.isEmpty) {
-                        return 'Please enter some text';
-                    }
-                    return null;
-                    },
+                  Container(
+            alignment: Alignment.centerLeft,
+            child: const Padding(
+              padding: EdgeInsets.only(left: 5.0),
+              child: Text(
+                "Register",
+                textAlign: TextAlign.start,
+                style: TextStyle(
+                  color: AppColors.font,
+                  fontFamily: 'MainFont',
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
                 ),
-                TextFormField(
-                    controller: _passwordController,
-                    decoration: const InputDecoration(labelText: 
-                        'Password'),
-                    validator: (String? value) {
-                    if (value != null && value.isEmpty) {
-                        return 'Please enter some text';
-                    }
-                    return null;
-                    },
-                ),
+              ),
+            ),
+            height: 50,
+            constraints: BoxConstraints(minWidth: double.infinity),
+            decoration: const BoxDecoration(
+                gradient: AppGrads.mainGreen,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(10),
+                  topRight: Radius.circular(10),
+                )),
+            ),
+            Container(
+      decoration: BoxDecoration(
+                color: Colors.white,
+                border: Border.all(color: Colors.white),
+                borderRadius: BorderRadius.circular(1.0)
+      ),
+      child: Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 1),
+      child: Form(
+      key: _formKey,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          TextFormField(
+            controller: _emailController,
+            decoration: const InputDecoration(labelText: 'Email'),
+            style: const TextStyle(
+              color: AppColors.font,
+              fontFamily: 'MainFont',
+              fontWeight: FontWeight.w600,
+              fontSize: 16),
+            validator: (String? value) {
+              if (value != null && value.isEmpty) {
+                return 'Please enter some text';
+              }
+              return null;
+            },
+          ),
+          TextFormField(
+            controller: _passwordController,
+            decoration: const InputDecoration(labelText: 'Password'),
+            style: const TextStyle(
+              color: AppColors.font,
+              fontFamily: 'MainFont',
+              fontWeight: FontWeight.w600,
+              fontSize: 16),
+            validator: (String? value) {
+              if (value != null && value.isEmpty) {
+                return 'Please enter some text';
+              }
+              return null;
+            },
+          ),
                 Container(
                     padding: const EdgeInsets.symmetric(vertical: 16.0),
                     alignment: Alignment.center,
@@ -146,7 +215,7 @@ Widget build(BuildContext context) {
                 )
                 ],
             ),
-            );
+            )))]);
     }
 }
 }

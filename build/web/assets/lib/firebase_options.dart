@@ -23,7 +23,10 @@ class DefaultFirebaseOptions {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        return ios;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for ios - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.macOS:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for macos - '
@@ -61,15 +64,5 @@ class DefaultFirebaseOptions {
     messagingSenderId: '944057375726',
     projectId: 'relieflink-d8470',
     storageBucket: 'relieflink-d8470.appspot.com',
-  );
-
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyAMncT3HIir2unsXdpvJgq45yc9yRf2nBg',
-    appId: '1:944057375726:ios:abc3d4cbee732068a94cff',
-    messagingSenderId: '944057375726',
-    projectId: 'relieflink-d8470',
-    storageBucket: 'relieflink-d8470.appspot.com',
-    iosClientId: '944057375726-vedapqisgkoq6taise8pg061dtetugcb.apps.googleusercontent.com',
-    iosBundleId: 'com.example.relieflink',
   );
 }

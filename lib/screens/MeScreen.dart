@@ -32,7 +32,7 @@ class MeScreen extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            meScreenButton(context, "Onboarding")
+            meScreenButton(context, "Tutorial")
           ],
         ),
       ),
@@ -55,7 +55,7 @@ class MeScreen extends StatelessWidget {
         goto = MapScreen();
         screenIcon = Icons.location_on_outlined;
         break;
-      case "Onboarding":
+      case "Tutorial":
         goto = OnboardingScreen();
         screenIcon = Icons.offline_bolt_outlined;
         break;

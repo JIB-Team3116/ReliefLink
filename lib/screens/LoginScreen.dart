@@ -31,9 +31,20 @@ class _LoginScreen extends State<LoginScreen> {
 //7
         return ListView(
           scrollDirection: Axis.vertical,
-          padding: const EdgeInsets.all(16),
+          padding: const EdgeInsets.only(left: 30.0, right: 30.0),
           children: <Widget>[
+            SizedBox(
+              height: 15.0,
+            ),
             _EmailPasswordForm(),
+            Padding(
+              padding: const EdgeInsets.only(left: 15.0, right: 15.0, top: 15.0),
+              child: Image.asset(
+                "lib/components/Profile/logo.PNG",
+                width: 413,
+                height: 250,
+              ),
+            ),
           ],
         );
       }),
@@ -83,16 +94,53 @@ void _signInWithEmailAndPassword() async {
 
   @override
   Widget build(BuildContext context) {
-
-    return Form(
+    return Column(
+      children: [
+        Container(
+            alignment: Alignment.centerLeft,
+            child: const Padding(
+              padding: EdgeInsets.only(left: 5.0),
+              child: Text(
+                "Login",
+                textAlign: TextAlign.start,
+                style: TextStyle(
+                  color: AppColors.font,
+                  fontFamily: 'MainFont',
+                  fontWeight: FontWeight.bold,
+                  fontSize: 17,
+                ),
+              ),
+            ),
+            height: 50,
+            constraints: BoxConstraints(minWidth: double.infinity),
+            decoration: const BoxDecoration(
+                gradient: AppGrads.mainGreen,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(10),
+                  topRight: Radius.circular(10),
+                )),
+            ),
+            Container(
+      decoration: BoxDecoration(
+                color: Colors.white,
+                border: Border.all(color: Colors.white),
+                borderRadius: BorderRadius.circular(1.0)
+      ),
+      child: Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 1),
+      child: Form(
       key: _formKey,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-
           TextFormField(
             controller: _emailController,
             decoration: const InputDecoration(labelText: 'Email'),
+            style: const TextStyle(
+              color: AppColors.font,
+              fontFamily: 'MainFont',
+              fontWeight: FontWeight.w600,
+              fontSize: 16),
             validator: (String? value) {
               if (value != null && value.isEmpty) {
                 return 'Please enter some text';
@@ -103,6 +151,12 @@ void _signInWithEmailAndPassword() async {
           TextFormField(
             controller: _passwordController,
             decoration: const InputDecoration(labelText: 'Password'),
+            obscureText: true,
+            style: const TextStyle(
+              color: AppColors.font,
+              fontFamily: 'MainFont',
+              fontWeight: FontWeight.w600,
+              fontSize: 16),
             validator: (String? value) {
               if (value != null && value.isEmpty) {
                 return 'Please enter some text';
@@ -127,27 +181,23 @@ void _signInWithEmailAndPassword() async {
           Container(
             alignment: Alignment.center,
             padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Text(
-               (_success == false && _pressed ? 'Sign in failed' : ''),
-              style: TextStyle(color: Colors.red),
-            ),
-          ),
-          Container(
-            alignment: Alignment.center,
-            padding: const EdgeInsets.symmetric(horizontal: 16),
             child: RichText(
               text: TextSpan(children: [
               TextSpan(
-                text: 'New to ReliefLink? ',
-                style: TextStyle(
-                  color: Colors.black,
-                ),
+                text: 'New to ReliefLink?  ',
+                style: const TextStyle(
+                  color: AppColors.font,
+                  fontFamily: 'MainFont',
+                  fontWeight: FontWeight.w600,
+                  fontSize: 16),
               ),
               TextSpan(
                   text: 'Register',
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.blue,
-                  ),
+                    fontFamily: 'MainFont',
+                    fontWeight: FontWeight.w600,
+                    fontSize: 16),
                   recognizer: TapGestureRecognizer()
                     ..onTap = () {
                       Navigator.push(
@@ -160,7 +210,12 @@ void _signInWithEmailAndPassword() async {
           )
         ],
       ),
-    );
+    )
+    )
+      )
+      ]
+    )
+    ;
   }
   @override
   void dispose() {
