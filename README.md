@@ -66,21 +66,27 @@ There are some dependencies for this project. They are automatically installed o
 
 
 ```
-  chewie: ^1.3.5
-  video_player: ^2.4.7
-  dio: ^4.0.0
-  flutter_polyline_points: ^0.2.6
-  google_maps_flutter: ^2.0.2
-  google_maps_flutter_web: ^0.3.2+2
-  url_launcher:
-  store_redirect: ^2.0.1
-  overlay_support: ^1.0.0
-  cupertino_icons: ^1.0.2
-  shared_preferences: ^2.0.15
-  fl_chart: ^0.55.2
-  pie_chart: ^5.3.2
-  syncfusion_flutter_charts: ^20.3.59
-  image_network: 
+      chewie: ^1.3.5
+      video_player: ^2.4.7
+      dio: ^4.0.0
+      flutter_polyline_points: ^2.0.0
+      google_maps_flutter: ^2.0.2
+      google_maps_flutter_web: ^0.3.2+2
+      url_launcher:
+      firebase_dynamic_links: ^5.3.5
+      store_redirect: ^2.0.1
+      overlay_support: ^1.0.0
+      cupertino_icons: ^1.0.2
+      shared_preferences: ^2.0.15
+      flutter_typeahead: ^4.1.1
+      fl_chart: ^0.55.2
+      pie_chart: ^5.3.2
+      syncfusion_flutter_charts: ^20.3.59
+      firebase_core: ^2.15.1
+      firebase_auth: ^4.9.0
+      cloud_firestore: ^4.13.3
+      tutorial_coach_mark: ^1.2.11
+
 ```
 
 ### Building and Deploying
