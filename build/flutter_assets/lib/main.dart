@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:relieflink/components/ReliefActivity/ReliefRateScreen.dart';
 import 'package:relieflink/components/ReliefActivity/ReliefScreen.dart';
 import 'package:relieflink/screens/OnboardingScreen.dart';
+import 'package:relieflink/screens/LoginScreen.dart';
 import 'package:relieflink/utils/relief_technique_utils.dart';
 import 'package:relieflink/screens/NavigationWrapper.dart';
 import 'package:relieflink/components/Navigation/TopBars.dart';
@@ -9,8 +10,15 @@ import 'components/ReliefActivitiesMenu/ActivitiesContainer.dart';
 import 'components/ReliefActivitiesMenu/SortContainer.dart';
 import 'package:relieflink/utils/data_storage.dart';
 import 'package:relieflink/utils/constants.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
@@ -54,7 +62,9 @@ class _MyHomePageState extends State<MyHomePage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
+    
+    //return const Nav();
 
-    return const Nav();
+    return const LoginScreen();
   }
 }

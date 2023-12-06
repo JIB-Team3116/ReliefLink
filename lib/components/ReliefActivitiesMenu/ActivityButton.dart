@@ -326,10 +326,10 @@ class _ActivityButtonState extends State<ActivityButton> {
               )),
           const Spacer(),
           
-          Image.network(widget.activity.image,
+          /*Image.network(widget.activity.image,
           width: 1200,
           height: 700,
-          fit:BoxFit.contain),
+          fit:BoxFit.contain),*/
         ],
       ),
     );

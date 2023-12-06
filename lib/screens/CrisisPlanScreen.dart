@@ -1,5 +1,5 @@
 import 'dart:core';
-
+import 'package:tutorial_coach_mark/tutorial_coach_mark.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_typeahead/flutter_typeahead.dart';
 import 'package:relieflink/utils/constants.dart';
@@ -8,7 +8,7 @@ import '../../utils/data_storage.dart';
 import 'package:relieflink/components/CrisisPlan/warningSignsCrisisCard.dart';
 import 'package:relieflink/components/CrisisPlan/reliefTechniqueCrisisCard.dart';
 import 'package:relieflink/components/CrisisPlan/reasonToLive.dart';
-
+import '../../utils/tutorial.dart';
 import '../utils/emergency_contact_utils.dart';
 
 class CrisisPlan extends StatefulWidget {
@@ -18,6 +18,35 @@ class CrisisPlan extends StatefulWidget {
 }
 
 class _CrisisPlanState extends State<CrisisPlan> {
+
+  final reasonKey = GlobalKey();
+  final warningKey = GlobalKey();
+  final reliefKey = GlobalKey();
+  final distractingKey = GlobalKey();
+
+  late TutorialCoachMark tutorialCoachMark;
+
+  void initCrisisTutorial() {
+    tutorialCoachMark = TutorialCoachMark(
+      targets: crisisPlanTutorial(
+      reasonKey: reasonKey,
+      warningKey: warningKey,
+      ),
+      colorShadow: Colors.purple,
+      paddingFocus: 10,
+      hideSkip: false,
+      opacityShadow: 0.8,
+      useSafeArea: true,
+      onFinish: () {
+        print("COMPLETE");
+      }
+    );
+  }
+
+  void showCrisisTutorial(){
+    tutorialCoachMark.show(context: context);
+  }
+
   //size standards
   double cardHeight = 360;
   double labelHeight = 50;
@@ -49,6 +78,7 @@ class _CrisisPlanState extends State<CrisisPlan> {
   @override
   void initState() {
     super.initState();
+    initCrisisTutorial();
     CrisisData? data = DataStorage.getCrisisData();
     if (data == null) {
       DataStorage.init().then((success) {
@@ -105,6 +135,21 @@ class _CrisisPlanState extends State<CrisisPlan> {
             shrinkWrap: true,
             padding: const EdgeInsets.only(left: 30.0, right: 30.0),
             children: [
+              SizedBox(height: 15.0),
+              Container(
+                alignment: Alignment.topRight,
+                child: ElevatedButton(
+                onPressed: () => showCrisisTutorial(),
+                style: ElevatedButton.styleFrom(
+                  shape: CircleBorder(),
+                  padding: EdgeInsets.all(1),
+                  backgroundColor: Colors.blue,
+                  foregroundColor: Colors.white,
+                ),
+                child: const Text('i'),
+              )
+              ),
+              
               Column(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -133,6 +178,7 @@ class _CrisisPlanState extends State<CrisisPlan> {
       shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(10))),
       child: Container(
+          key: reasonKey,
           // height: cardHeight,
           child: Column(
         children: [
@@ -184,6 +230,7 @@ class _CrisisPlanState extends State<CrisisPlan> {
       shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(10))),
       child: Container(
+          key:warningKey,
           height: cardHeight,
           child: Column(
             children: [
@@ -326,6 +373,7 @@ class _CrisisPlanState extends State<CrisisPlan> {
       shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(10))),
       child: Container(
+          key: reliefKey,
           height: cardHeight,
           child: Column(
             children: [
@@ -396,6 +444,7 @@ class _CrisisPlanState extends State<CrisisPlan> {
       shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(10))),
       child: Container(
+          key: distractingKey,
           height: cardHeight,
           child: Column(
             children: [

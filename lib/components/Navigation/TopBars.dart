@@ -168,4 +168,12 @@ class TOP_BARS {
     mainText: 'Crisis Plan',
     descriptiveText: 'Manage your crisis plan',
   );
+  static const LOGIN = TopBars(
+    mainText: 'Login',
+    descriptiveText: 'Please enter your login information below',
+  );
+  static const REGISTER = TopBars(
+    mainText: 'Register',
+    descriptiveText: 'Please register your account below'
+  );
 }
