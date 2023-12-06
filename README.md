@@ -102,6 +102,29 @@ We suggest that you speak to the programmers on your team. You can try this link
 
 # Major Release Notes
 
+## v1.6.0
+
+Presentation update! We mostly worked on UI changes and bug fixes within this update to get it ready to be deployed and presented to our clients.
+
+### New Features
+- Frontend
+  - Login and register screen had a full UI makeover to fit in with ReliefLink theme
+  - Tutorial was updated to better emphasize features and buttons for users
+  - Relief Techniques pictures were made optional to avoid clipping on different screen sizes
+### Bug Fixes
+- Users data should no longer delete between updates
+- Users should no longer get stuck in between the login, register, and home screen
+- Users should no longer be unable to update their profile information
+- Users should no longer get stuck in an infinite loop tutorial
+
+### Known Issues
+- Pixel overflow can occur if too many contacts are added
+- Map currently says for development purposes only
+- formatting between mobile and desktop aren't consistent
+- Videos will occasionally not be playable or supported on mobile devices
+- Accessing the tutorial through the settings page will sometimes duplicate the topbar until app is restarted
+
+# Previous Release Notes
 ## v1.5.0
 
 Tutorial Update, included a tutorial within the application for users to learn about the app's main features and how to use them.
@@ -123,8 +146,7 @@ Tutorial Update, included a tutorial within the application for users to learn a
 - Pictures can have a weird watermark if using desktop
 - formatting between mobile and desktop aren't consistent
 - Sometimes error messages for incorrect login or existing registration don't show up
-
-# Previous Release Notes
+  
 ## v1.4.0
 
 User Features update, we implemented some major features of the application within this update that focused on customizability for users regarding how they want to approach their individual mental healthcare.
